@@ -1,10 +1,13 @@
 # PetAgenda
-> Substitua os trechos entre colchetes `[ ]` pelas informações reais do trabalho. Remova esta nota e as demais orientações em *itálico* antes da entrega.
 
-**Instituição:** Uniceub 
-**Curso:** Análise e Desenvolvimento de Sistemas
-**Disciplina:** Desenvolvimento Web
-**Turma / Semestre:** 2026.2 
+[![Status](https://img.shields.io/badge/status-[em_desenvolvimento]-yellow)]()
+[![Versão](https://img.shields.io/badge/versão-[0.1.0]-blue)]()
+[![Licença](https://img.shields.io/badge/licença-[acadêmica]-lightgrey)]()
+
+**Instituição:** Uniceub.  
+**Curso:** [Análise e Desenvolvimento de Sistemas]  
+**Disciplina:** [Nome da disciplina]  
+**Turma / Semestre:** [Ex.: 2026.2]  
 **Professor(a):** [Nome completo]  
 **Status do projeto:** [Protótipo / MVP / Em desenvolvimento / Concluído]
 
