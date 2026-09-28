@@ -4,8 +4,8 @@
 [![Versão](https://img.shields.io/badge/versão-[0.1.0]-blue)]()
 [![Licença](https://img.shields.io/badge/licença-[acadêmica]-lightgrey)]()
 
-**Instituição:** Uniceub.  
-**Curso:** [Análise e Desenvolvimento de Sistemas]  
+**Instituição:** Uniceub  
+**Curso:** Análise e Desenvolvimento de Sistemas  
 **Disciplina:** [Nome da disciplina]  
 **Turma / Semestre:** [Ex.: 2026.2]  
 **Professor(a):** [Nome completo]  
