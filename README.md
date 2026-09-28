@@ -35,25 +35,36 @@
 
 ## 1. Descrição do projeto
 
-*Apresente o contexto, o problema e a solução proposta. Use linguagem objetiva (dois a quatro parágrafos).*
+O **PetAgenda** é uma aplicação web desenvolvida para facilitar o gerenciamento de informações relacionadas a animais de estimação e seus atendimentos.
 
-[Descreva o que o sistema faz, para quem ele se destina e qual problema ele resolve.]
+A aplicação tem como objetivo centralizar informações sobre pets, seus responsáveis e os atendimentos realizados, permitindo que esses dados sejam cadastrados, consultados, alterados e excluídos de forma organizada.
+
+O sistema também contará com recursos de busca e geração de relatórios, além de uma API REST própria para disponibilização dos dados selecionados da aplicação.
+
+Como parte da integração com serviços externos, o PetAgenda utilizará uma API de terceiros relacionada a informações sobre raças de cães. Dessa forma, os dados obtidos externamente serão utilizados em uma funcionalidade real do sistema.
 
 ### Objetivos
 
 *Liste os objetivos gerais e específicos do projeto.*
 
-- **Objetivo geral:** [Ex.: desenvolver uma aplicação web para gerenciar reservas de laboratórios.]
+- **Objetivo geral:** desenvolver uma aplicação web para gerenciamento de pets e seus respectivos atendimentos, utilizando Python e Django.
 - **Objetivos específicos:**
-  - [Ex.: permitir cadastro e autenticação de usuários.]
-  - [Ex.: registrar e consultar reservas por data e laboratório.]
-  - [Ex.: gerar relatórios de ocupação.]
+  - Permitir o cadastro, consulta, alteração e exclusão de informações sobre pets;
+  - Permitir o cadastro e acompanhamento de atendimentos;
+  - Disponibilizar busca por diferentes critérios;
+  - Consultar informações sobre raças por meio de uma API externa;
+  - Disponibilizar uma API REST própria;
+  - Gerar relatórios com dados consolidados;
+  - Implementar validação dos dados inseridos;
+  - Aplicar boas práticas de segurança;
+  - Disponibilizar uma interface responsiva e de fácil utilização.
 
 ### Público-alvo
 
-- [Ex.: estudantes da instituição]
-- [Ex.: professores responsáveis pelos laboratórios]
-- [Ex.: equipe administrativa]
+- Donos e responsáveis por animais de estimação;
+- Pequenos pet shops;
+- Clínicas veterinárias de pequeno porte;
+- Profissionais que realizam serviços relacionados a animais.
 
 ---
 
@@ -62,19 +73,26 @@
 *Liste as funções implementadas (ou previstas) no sistema. Marque o status de cada uma.*
 
 | Funcionalidade | Descrição | Status |
-| --- | --- | --- |
-| [Ex.: Autenticação] | [Ex.: login, logout e recuperação de senha] | [Implementada / Em andamento / Planejada] |
-| [Ex.: Cadastro de usuários] | [Ex.: criação e edição de perfis] | [Implementada / Em andamento / Planejada] |
-| [Ex.: Relatórios] | [Ex.: exportação em PDF] | [Implementada / Em andamento / Planejada] |
+| ------------------------ | ------------------------------------------------- | ------------------ |
+| Cadastro de pets         | Cadastro das informações dos animais              | Em desenvolvimento |
+| Consulta de pets         | Visualização dos pets cadastrados                 | Em desenvolvimento |
+| Alteração de pets        | Atualização dos dados cadastrados                 | Em desenvolvimento |
+| Exclusão de pets         | Exclusão de registros                             | Em desenvolvimento |
+| Busca                    | Pesquisa por nome, raça, espécie ou responsável   | Em desenvolvimento |
+| Cadastro de atendimentos | Registro de consultas e serviços realizados       | Em desenvolvimento |
+| Histórico                | Consulta dos atendimentos relacionados a cada pet | Planejada          |
+| API externa              | Consulta de informações sobre raças de cães       | Planejada          |
+| API REST própria         | Disponibilização dos dados do sistema em JSON     | Planejada          |
+| Relatórios               | Geração de informações consolidadas               | Planejada          |
+| Autenticação             | Controle de acesso ao sistema                     | Planejada          |
 
 ### Requisitos não funcionais
 
-*Informe restrições de qualidade, quando existirem.*
-
-- **Desempenho:** [Ex.: respostas da API em menos de 2 segundos]
-- **Segurança:** [Ex.: senhas armazenadas com hash; HTTPS em produção]
-- **Usabilidade:** [Ex.: interface responsiva para desktop e celular]
-- **Disponibilidade:** [Ex.: uso em ambiente local / laboratório da disciplina]
+- **Desempenho:** a aplicação deverá apresentar respostas adequadas durante as operações realizadas pelo usuário.
+- **Segurança:** os dados deverão ser validados e informações sensíveis não deverão ser armazenadas diretamente no código.
+- **Usabilidade:** a interface deverá ser simples e intuitiva.
+- **Responsividade:** a aplicação deverá ser utilizável em computadores e dispositivos móveis.
+- **Disponibilidade:** a aplicação deverá ser publicada em ambiente acessível pela Internet durante o período de avaliação.
 
 ---
 
@@ -99,10 +117,11 @@
 
 | Camada | Tecnologia | Versão |
 | --- | --- | --- |
-| Linguagem | [Ex.: Python, Java, TypeScript] | [Ex.: 3.12] |
-| Frontend | [Ex.: HTML, CSS, React] | [Ex.: 18] |
+| Linguagem | Python| [Ex.: 3.12] |
+| Frontend |HTML, CSS | [Ex.: 18] |
 | Backend | [Ex.: Flask, Spring Boot, Node.js] | [Ex.: 3.x] |
-| Banco de dados | [Ex.: PostgreSQL, SQLite, MongoDB] | [Ex.: 16] |
+| Banco de dados |MySQL | [Ex.: 16] |
+| Api Externa |Dog CEO API | |
 | Testes | [Ex.: pytest, JUnit, Jest] | [Ex.: 8] |
 | Infraestrutura | [Ex.: Docker, GitHub Actions] | — |
 | Outras ferramentas | [Ex.: Git, Figma, Postman] | — |
@@ -111,12 +130,29 @@
 
 ## 5. Arquitetura
 
-*Explique como o sistema está organizado: camadas, principais componentes e o fluxo entre eles. Inclua um diagrama no PDF de arquitetura ou de classes em `docs/` e descreva-o em texto.*
+A aplicação será composta por uma camada de apresentação, responsável pela interface do usuário, uma camada de aplicação desenvolvida em Django, uma camada de persistência responsável pelo banco de dados e integrações externas.
 
-[Ex.: a solução segue uma arquitetura em camadas (apresentação, aplicação, domínio e persistência). O frontend consome uma API REST. O backend aplica as regras de negócio e persiste os dados no banco.]
+O sistema também contará com uma API REST própria desenvolvida com Django REST Framework.
 
 ```text
-[Usuário] → [Interface / Frontend] → [API / Backend] → [Banco de dados]
+[Usuário]
+     |
+     v
+[Interface Web]
+     |
+     v
+[Django]
+     |
+     +-------------------+
+     |                   |
+     v                   v
+[Banco de Dados]    [API Externa]
+                         |
+                         v
+                  [Dog CEO API]
+                         |
+                         v
+                  [Lista de raças]
 ```
 
 **Decisões relevantes:**
@@ -128,11 +164,13 @@
 
 | Método | Rota | Descrição |
 | --- | --- | --- |
-| `POST` | `/api/[recurso]` | [Ex.: criar um registro] |
-| `GET` | `/api/[recurso]` | [Ex.: listar registros] |
-| `GET` | `/api/[recurso]/{id}` | [Ex.: obter um registro] |
-| `PUT` | `/api/[recurso]/{id}` | [Ex.: atualizar um registro] |
-| `DELETE` | `/api/[recurso]/{id}` | [Ex.: remover um registro] |
+| `GET`    | `/api/pets/`         | Lista os pets cadastrados  |
+| `POST`   | `/api/pets/`         | Cadastra um novo pet       |
+| `GET`    | `/api/pets/<id>/`    | Consulta um pet específico |
+| `PUT`    | `/api/pets/<id>/`    | Atualiza um pet            |
+| `DELETE` | `/api/pets/<id>/`    | Exclui um pet              |
+| `GET`    | `/api/atendimentos/` | Lista os atendimentos      |
+| `POST`   | `/api/atendimentos/` | Cadastra um atendimento    |
 
 Documentação completa da API: [link para Swagger, Postman ou `docs/api.md`]
 
@@ -183,10 +221,10 @@ Documentação completa da API: [link para Swagger, Postman ou `docs/api.md`]
 
 | Nome | Matrícula | Função no projeto |
 | --- | --- | --- |
-| [Nome completo] | [000000] | [Ex.: coordenação / backend / frontend / testes / documentação] |
-| [Nome completo] | [000000] | [Ex.: backend] |
-| [Nome completo] | [000000] | [Ex.: frontend] |
-| [Nome completo] | [000000] | [Ex.: testes e documentação] |
+| Geovanna de Freitas Santos | [000000] | [Ex.: coordenação / backend / frontend / testes / documentação] |
+| Giovanna Souza de Oliveira | [000000] | [Ex.: backend] |
+| Gustavo Ramos de Azevedo | [000000] | [Ex.: frontend] |
+| Raul Duarte Contreira | [000000] | [Ex.: testes e documentação] |
 
 **Professor(a) responsável:** [Nome completo]
 
