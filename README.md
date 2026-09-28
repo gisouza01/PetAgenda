@@ -6,10 +6,10 @@
 
 **Instituição:** Uniceub  
 **Curso:** Análise e Desenvolvimento de Sistemas  
-**Disciplina:** [Nome da disciplina]  
-**Turma / Semestre:** [Ex.: 2026.2]  
+**Disciplina:** Desenvolvimento Web
+**Turma / Semestre:** 2026.2  
 **Professor(a):** [Nome completo]  
-**Status do projeto:** [Protótipo / MVP / Em desenvolvimento / Concluído]
+**Status do projeto:** Em desenvolvimento
 
 ---
 
