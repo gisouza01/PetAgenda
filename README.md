@@ -8,7 +8,7 @@
 **Curso:** Análise e Desenvolvimento de Sistemas  
 **Disciplina:** Desenvolvimento Web
 **Turma / Semestre:** 2026.2  
-**Professor(a):** Felippe Pires  
+**Professor(a):** Felipe Pires  
 **Status do projeto:** Em desenvolvimento
 
 ---
