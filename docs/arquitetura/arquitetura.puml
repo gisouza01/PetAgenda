@@ -1,0 +1,48 @@
+@startuml
+ title Arquitetura da Aplicação — PetAgenda
+ left to right direction
+ skinparam componentStyle rectangle
+ skinparam shadowing false
+ skinparam packageStyle rectangle
+
+ actor "Usuário\n(Navegador)" as Usuario
+
+ component "Interface Web\nHTML e CSS\n(templates Django)" as Interface
+
+ package "Aplicação PetAgenda (Django + Python)" {
+   component "URLs e Views\n(Django)" as Views
+   component "Formulários e Validações\n(Django Forms)" as Validacao
+   component "Regras de Negócio\n(Python + Django)" as Negocio
+   component "Models e ORM\n(Django)" as ORM
+   component "Serviço de Integração\n(Dog CEO API)" as Integracao
+ }
+
+ component "API REST\n(Django REST Framework)" as API {
+   component "Serializers\n(validação e conversão\nde dados)" as Serializers
+ }
+
+ database "Banco de Dados\n(SQLite ou PostgreSQL)" as Banco
+ cloud "Dog CEO API\n(Consulta de raças)" as DogCEO
+
+ Usuario <--> Interface : navegação
+ Interface <--> Views : requisições web
+ Views <--> Validacao : validação de formulários
+ Views --> Negocio : solicita operações
+ Validacao --> Negocio : dados válidos
+ Negocio <--> ORM : consulta e persistência
+ ORM <--> Banco : SQL via ORM
+ Interface <--> API : HTTP / JSON
+ API --> Serializers : valida e converte
+ Serializers --> Negocio : dados validados
+ Negocio --> API : resultados
+ Negocio --> Integracao : solicita lista de raças
+ Integracao --> DogCEO : requisição HTTP
+ DogCEO --> Integracao : resposta JSON
+ Integracao --> Negocio : dados de raças
+
+ note bottom of Negocio
+   A aplicação processa os dados e aplica
+   as regras de negócio em Python.
+ end note
+
+ @enduml
