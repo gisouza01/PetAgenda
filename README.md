@@ -217,16 +217,14 @@ Documentação completa da API: [link para Swagger, Postman ou `docs/api.md`]
 
 ## 7. Participantes
 
-*Informe nome completo, função no grupo e, se houver, o identificador acadêmico (matrícula).*
-
 | Nome | Matrícula | Função no projeto |
 | --- | --- | --- |
-| Geovanna de Freitas Santos | [000000] | [Ex.: coordenação / backend / frontend / testes / documentação] |
-| Giovanna Souza de Oliveira | [000000] | [Ex.: backend] |
-| Gustavo Ramos de Azevedo | [000000] | [Ex.: frontend] |
-| Raul Duarte Contreira | [000000] | [Ex.: testes e documentação] |
+| Geovanna de Freitas Santos | [000000] | Frontend e Documentação |
+| Giovanna Souza de Oliveira | 22503064 | Testes e Documentação |
+| Gustavo Ramos de Azevedo | 22510641 | Backend e Documentação |
+| Raul Duarte Contreira | 22511188 | Backend e Documentação |
 
-**Professor(a) responsável:** [Nome completo]
+**Professor(a) responsável:** Felipe Pires
 
 ---
 
